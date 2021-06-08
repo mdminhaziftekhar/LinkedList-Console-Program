@@ -30,4 +30,21 @@ public class LinkedList {
         head = new_node;
     }
 
+    public void insertAfter(Node prev_node, int new_data){
+        //check if the given node is null
+        if(prev_node == null){
+            System.out.println("The given previous node can't be null");
+            return;
+        }
+
+        //Allocate the node & Put in the data
+        Node new_node = new Node(new_data);
+
+        //make next of new_nodeas next of prev_node
+        new_node.next = prev_node.next;
+
+        //make next of previous node as new node
+        prev_node.next = new_node;
+    }
+
 }
