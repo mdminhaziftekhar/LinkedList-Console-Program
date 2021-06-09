@@ -150,4 +150,9 @@ public class LinkedList {
         prev.next = temp.next;
         System.out.println("Node deleted successfully!");
     }
+    void deleteList()
+    {
+        //deletes the full llist
+        head = null;
+    }
 }

@@ -17,6 +17,7 @@ public class Main {
             System.out.println("(4) Press 4 to insert at a specific position of the node : ");
             System.out.println("(5) Press 5 to print the linked list : ");
             System.out.println("(6) Press 6 to delete a node from the list : ");
+            System.out.println("(7) Press 7 to delete the full the list : ");
             System.out.println(" Press 0 to exit");
             option = scan.nextInt();
 
@@ -55,6 +56,10 @@ public class Main {
                     System.out.print("Enter the number you want to delete : ");
                     int a = scan.nextInt();
                     list.deleteNode(a);
+                }
+                case(7):{
+                    list.deleteList();
+                    System.out.println("Deleted the full list!");
                 }
                 case(0): {
                     break;
