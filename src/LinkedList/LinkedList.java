@@ -30,11 +30,13 @@ public class LinkedList {
         head = new_node;
     }
 
-    public void insertAfter(Node prev_node, int new_data){
-        //check if the given node is null
-        if(prev_node == null){
-            System.out.println("The given previous node can't be null");
+    public void insertAfter(int data, int new_data){
+        Node prev_node = ifNodeExist(0);
+        if(ifNodeExist(data) == null){
+            System.out.println("Node doesn't exist, insert an appropriate number");
             return;
+        }else {
+            prev_node = ifNodeExist(data);
         }
 
         //Allocate the node & Put in the data
@@ -77,6 +79,10 @@ public class LinkedList {
     public void printList(){
         Node tnode = head;
 
+        if(tnode.next == null){
+            System.out.println(tnode.data);
+        }
+
         while(tnode.next != null){
             System.out.print(tnode.data + " -> ");
             tnode = tnode.next;
@@ -85,6 +91,17 @@ public class LinkedList {
                 break;
             }
         }
+    }
+
+    public Node ifNodeExist(int new_node){
+        Node last = head;
+        while(last.next != null){
+            if(last.data == new_node){
+                return last;
+            }
+            last = last.next;
+        }
+        return null;
     }
 
 }
