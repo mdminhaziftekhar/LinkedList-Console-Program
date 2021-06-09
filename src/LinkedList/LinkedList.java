@@ -10,6 +10,11 @@ public class LinkedList {
         int data;
         Node next;
 
+        Node(){
+            data = 0;
+            next = null;
+        }
+
         //constructor to create a node
         Node(int d) {
             data = d;
@@ -28,6 +33,8 @@ public class LinkedList {
 
         //4. Move the head to point the new node
         head = new_node;
+
+        System.out.println("Linked List created successfully!");
     }
 
     public void insertAfter(int data, int new_data){
@@ -47,6 +54,7 @@ public class LinkedList {
 
         //make next of previous node as new node
         prev_node.next = new_node;
+        System.out.println("Node Inserted Successfully!");
     }
 
     public void append(int new_data){
@@ -58,6 +66,7 @@ public class LinkedList {
         //4. If list is empty, then make the new as head
         if(head == null){
             head = new Node(new_data);
+            System.out.println("Node appended successfully!");
             return;
         }
 
@@ -73,11 +82,17 @@ public class LinkedList {
 
         //6. Change the next of the last node
         last.next = new_node;
+        System.out.println("Node appended successfully!");
         return;
     }
 
     public void printList(){
         Node tnode = head;
+
+        if(tnode == null){
+            System.out.println("Linked List is empty");
+            return;
+        }
 
         if(tnode.next == null){
             System.out.println(tnode.data);
@@ -104,4 +119,35 @@ public class LinkedList {
         return null;
     }
 
+    public void deleteNode(int key){
+        //store the head node
+        Node temp = head;
+        Node prev = null;
+
+        //if head node itself holds the key
+        if(temp!=null && temp.data == key){
+            head = temp.next;
+            System.out.println("Node deleted successfully!");
+            return;
+        }
+
+        //search for the key to be deleted, keep track
+        //of the previous node as we need to change
+        //temp.next
+
+        while(temp != null && temp.data != key){
+            prev = temp;
+            temp = temp.next;
+        }
+
+        //If key was not found
+        if(temp == null){
+            System.out.println("Enter a valid number that is present in the linked list");
+            return;
+        }
+        //unlink the node from list
+
+        prev.next = temp.next;
+        System.out.println("Node deleted successfully!");
+    }
 }

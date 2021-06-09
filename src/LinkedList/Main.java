@@ -16,7 +16,8 @@ public class Main {
             System.out.println("(3) Press 3 to insert at the end of the node : ");
             System.out.println("(4) Press 4 to insert at a specific position of the node : ");
             System.out.println("(5) Press 5 to print the linked list : ");
-            System.out.println("(6) Press 0 to exit");
+            System.out.println("(6) Press 6 to delete a node from the list : ");
+            System.out.println(" Press 0 to exit");
             option = scan.nextInt();
 
             switch (option){
@@ -49,6 +50,11 @@ public class Main {
                 case(5):{
                     list.printList();
                     break;
+                }
+                case (6) : {
+                    System.out.print("Enter the number you want to delete : ");
+                    int a = scan.nextInt();
+                    list.deleteNode(a);
                 }
                 case(0): {
                     break;
