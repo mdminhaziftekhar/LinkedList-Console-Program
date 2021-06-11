@@ -155,4 +155,42 @@ public class LinkedList {
         //deletes the full llist
         head = null;
     }
+    public int getCountRec(Node node)
+    {
+        // Base case
+        if (node == null)
+            return 0;
+
+        // Count is this node plus rest of the list
+        return 1 + getCountRec(node.next);
+    }
+    public int getCount()
+    {
+        return getCountRec(head);
+    }
+
+    public String reverseList(){
+        Node prev = null;
+        Node curr = head;
+        Node next = null;
+
+        while(curr != null){
+            //point next to the next of current
+            next = curr.next;
+
+            //change the next of current
+            //this is where the actual reversing happens
+            curr.next = prev;
+
+            //now move curr and prev to one step forward
+            prev = curr;
+            curr = next;
+        }
+
+        //finally make previous as head
+        head = prev;
+        return "Linked List reversed successfully!";
+    }
+
+
 }

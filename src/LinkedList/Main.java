@@ -18,6 +18,8 @@ public class Main {
             System.out.println("(5) Press 5 to print the linked list : ");
             System.out.println("(6) Press 6 to delete a node from the list : ");
             System.out.println("(7) Press 7 to delete the full the list : ");
+            System.out.println("(8) Press 8 to print the length of the list : ");
+            System.out.println("(9) Press 9 to reverse the linked list : ");
             System.out.println(" Press 0 to exit");
             option = scan.nextInt();
 
@@ -56,10 +58,20 @@ public class Main {
                     System.out.print("Enter the number you want to delete : ");
                     int a = scan.nextInt();
                     list.deleteNode(a);
+                    break;
                 }
                 case(7):{
                     list.deleteList();
                     System.out.println("Deleted the full list!");
+                    break;
+                }
+                case(8): {
+                    System.out.println("The length of the list is : " + list.getCount());
+                    break;
+                }
+                case(9):{
+                    System.out.println(list.reverseList());
+                    break;
                 }
                 case(0): {
                     break;
